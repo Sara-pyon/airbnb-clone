@@ -1,42 +1,28 @@
-import { FaAirbnb } from "react-icons/fa";
-import { IoSearch } from "react-icons/io5";
+import Logo from "./Logo";
+import NavBarOption from "./NavBarOption";
+import SearchInputs from "./SearchInputs";
+import User from "./User";
 
 const NavBar = () => {
   return (
-    <div>
-        <a href="#" className="flex flex-row items-center gap-1">
-            <FaAirbnb size={40}/>
-            <span className="font-bold text-xl">Airbnb</span>
-        </a>
-        <div className="flex flex-row justify-between 
-            text-sm px-6 py-3
-            border border-gray-300 rounded-full border-1
-            shadow-md">
-            <div className="text-left hover:bg-gray-300 w-full px-2">
-                <p>Where</p>
-                <p className="font-light opacity-70">Search destinations</p>
+    <>
+        <div className="flex flex-col items-center
+                pb-5">
+            <div className="flex justify-between
+                        py-3 px-2 w-full">
+                <Logo />
+                <div className="flex justify-center items-center gap-1">
+                <NavBarOption title="Stays"/>
+                <NavBarOption title="Experiences"/>
+                <NavBarOption title="Online Experiences"/>
+                </div>
+                <User />
             </div>
-            <div className="border-l border-gray-300" />
-            <div className="text-left hover:bg-gray-300 w-full px-2">
-                <p>Check in</p>
-                <p className="font-light opacity-80">Add dates</p>
-            </div>
-            <div className="border-l border-gray-300" />
-            <div className="text-left hover:bg-gray-300 w-full px-2">
-                <p>check out</p>
-                <p className="font-light opacity-80">Add dates</p>
-            </div>
-            <div className="border-l border-gray-300" />
-            <div className="text-left hover:bg-gray-300 w-full px-2">
-                <p>Who</p>
-                <p className="font-light opacity-80">Add guests</p>
-            </div>
-            <button>
-                <IoSearch size={30}/>
-            </button>
-            
+            <SearchInputs />
         </div>
-    </div>
+        <div className="border-t border-gray-300" />
+    </>
+    
   )
 }
 
