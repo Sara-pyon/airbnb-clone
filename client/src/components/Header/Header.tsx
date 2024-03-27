@@ -1,9 +1,9 @@
 import Logo from "./Logo";
-import NavBarOption from "./NavBarOption";
+import HeaderOption from "./HeaderOption";
 import SearchInputs from "./SearchInputs";
-import User from "./User";
+import User from "../User";
 
-const NavBar = () => {
+const Header = () => {
   return (
     <>
         <div className="flex flex-col items-center
@@ -12,9 +12,9 @@ const NavBar = () => {
                         py-3 px-2 w-full">
                 <Logo />
                 <div className="flex justify-center items-center gap-1">
-                <NavBarOption title="Stays"/>
-                <NavBarOption title="Experiences"/>
-                <NavBarOption title="Online Experiences"/>
+                <HeaderOption title="Stays"/>
+                <HeaderOption title="Experiences"/>
+                <HeaderOption title="Online Experiences"/>
                 </div>
                 <User />
             </div>
@@ -26,4 +26,4 @@ const NavBar = () => {
   )
 }
 
-export default NavBar
+export default Header

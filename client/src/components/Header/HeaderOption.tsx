@@ -1,7 +1,7 @@
 interface Props{
   title: string
 }
-const NavBarOption  = ({title}:Props) => {
+const HeaderOption  = ({title}:Props) => {
   return (
     <div>
       <p className="font-light opacity-70
@@ -15,4 +15,4 @@ const NavBarOption  = ({title}:Props) => {
   )
 }
 
-export default NavBarOption
+export default HeaderOption
