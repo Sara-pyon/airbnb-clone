@@ -12,7 +12,7 @@ const User = () => {
                   w-fit py-2 px-3
                   border border-gray-300 rounded-full border-1
                   hover:shadow-md cursor-pointer"
-                  onClick={() => setToggled(!toggled)}>
+                  onClick={() =>setToggled(!toggled)}>
           <IoIosMenu size={25} />
           <FaUserCircle size={30}/>
           {toggled && <div className='

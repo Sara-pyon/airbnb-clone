@@ -2,6 +2,7 @@ import Logo from "./Logo";
 import HeaderOption from "./HeaderOption";
 import SearchInputs from "./SearchInputs";
 import User from "../User";
+import LogInSignUp from "../User/LogInSignUp";
 
 const Header = () => {
   return (
@@ -21,6 +22,7 @@ const Header = () => {
             <SearchInputs />
         </div>
         <div className="border-t border-gray-300" />
+        <LogInSignUp />
     </>
     
   )
