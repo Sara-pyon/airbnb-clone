@@ -1,6 +1,6 @@
 interface Props{
     title: string,
-    description: string
+    description?: string
 }
 
 const SearchInput = ({title, description}: Props) => {

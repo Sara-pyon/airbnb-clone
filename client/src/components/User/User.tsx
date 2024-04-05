@@ -3,7 +3,7 @@ import { FaUserCircle } from 'react-icons/fa'
 import { IoIosMenu } from 'react-icons/io'
 
 const User = () => {
-  const [toggled, setToggled] = useState(true);
+  const [toggled, setToggled] = useState(false);
 
   return (
     <>

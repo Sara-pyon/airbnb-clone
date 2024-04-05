@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* input[type="tel"],input[type="email"],input[type="phone"],input[type="password"],input[type="text"]{
+    @apply w-full p-2 rounded-lg focus:outline-none focus:border-2 focus:border-black;
+} */
+button.primary{
+    @apply  bg-primary hover:bg-primaryHover border-0
+}

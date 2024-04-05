@@ -1,7 +1,7 @@
 import Logo from "./Logo";
 import HeaderOption from "./HeaderOption";
 import SearchInputs from "./SearchInputs";
-import User from "../User";
+import User from "../User/User";
 import LogInSignUp from "../User/LogInSignUp";
 
 const Header = () => {

@@ -15,10 +15,8 @@ const SearchInputs = () => {
             <SearchInput title="check out" description="Add dates" />
             <div className="border-l border-gray-300 my-3" />
             <SearchInput title="Who" description="Add guests" />
-            <button className="absolute right-2 top-1
-                    bg-primary p-4 
-                    border rounded-full border-0
-                    hover:bg-primaryHover">
+            <button className="primary absolute right-2 top-1 p-4 
+                    border rounded-full ">
                 <IoSearch size={20} color="white"/>
             </button>
         </div>

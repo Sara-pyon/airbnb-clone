@@ -1,0 +1,37 @@
+.inputBox{
+    height: fit-content;
+    z-index: 0;
+    position: relative;
+    border: 1px solid rgb(224, 228, 233);
+    border-radius: 10px;
+    overflow: hidden;
+    padding-inline: 15px;
+}
+.inputBox span{
+    z-index: 0;
+    position: absolute;
+    font-size: 1rem;
+    left: 15px;
+    top: 11px;
+    color: rgb(155, 157, 161);
+    transition: all 0.2s;
+}
+.inputBox input{
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    background: transparent;
+    padding-block: 1.3rem 0.5rem;
+}
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span{
+    font-size: 0.8rem;
+    top: 2px;
+}
+.inputBox:focus-within{
+    border: 2px solid black;
+}
+
+
