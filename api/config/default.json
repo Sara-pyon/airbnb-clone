@@ -1,0 +1,4 @@
+{
+    "jwtPrivateKey": "",
+    "db" :"mongodb+srv://radwimpssara:radwimps0921@cluster0.o3xy4pi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0&maxPoolSize=500"
+}
