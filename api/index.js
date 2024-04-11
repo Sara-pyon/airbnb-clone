@@ -1,23 +1,25 @@
 const express = require('express');
-const cors = require('cors')
+require('express-async-errors');
+const cors = require('cors');
+const setCorsHeader = require('./middleware/setCorsHeader')
 const app = express();
 const config = require('config');
-const { default: mongoose } = require('mongoose');
+const mongoose = require('mongoose');
+const user = require('./Routes/user');
 
 const db = config.get('db');
 mongoose.connect(db)
         .then(() => console.log(`Connected to ${db}`))
         .catch((e) => console.error('Can not connect to databese', e));
 
-use.app(express.json());
-use.app(cors({
+app.use(cors({
     credentials: true,
-    origin: 'http://localhost:5173'
+    origin: 'http://localhost:5173',
 }));
+app.use(setCorsHeader);
+app.use(express.json());
+app.use('/api/users', user);
 
-app.get('/test', (req, res) => {
-    res.send('test ok');
-})
 
 
 
