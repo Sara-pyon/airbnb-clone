@@ -20,15 +20,16 @@ router.post('/', validator(validateAuth) ,async(req, res) => {
         path:"/",
         sameSite:true,
         maxAge: 1000 * 60 * 60 * 24, // would expire after 24 hours
-        httpOnly: true, // The cookie only accessible by the web server
+        httpOnly: false, // The cookie only accessible by the web server
     }
 
     const token = user.generateAuthToken();
-    res.cookie('x-auth-token', token, options).send(pickUserInfo(user));
+    res.cookie('x-auth-token', token).send(pickUserInfo(user));
 });
 
-router.get('/', auth, async(req, res) => {
+router.get('/',async(req, res) => {
     let token = req.cookies['x-auth-token'];
+
     jwt.verify(token, config.get('jwtPrivateKey'), {}, async(err, decoded) => {
         if(err) throw err
         const user = await User.findById(decoded._id);

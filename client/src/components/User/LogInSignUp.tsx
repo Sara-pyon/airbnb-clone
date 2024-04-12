@@ -6,7 +6,7 @@ import { Icon } from '@iconify-icon/react/dist/iconify.mjs';
 import { Link} from 'react-router-dom';
 
 const LogInSignUp = () => {
-    const[isOpened, setIsOpened] = useState(true);
+    const[isOpened, setIsOpened] = useState(false);
     const[isEmailfild, setIsEmailFiled] = useState(false);
    return isOpened ? 
    (

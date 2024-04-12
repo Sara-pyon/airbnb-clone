@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa'
 import { IoIosMenu } from 'react-icons/io'
+import UserContext from '../../UserContext';
+import UserMenu from './UserMenu';
 
 const User = () => {
   const [toggled, setToggled] = useState(false);
+  const { user } = useContext(UserContext);
 
   return (
     <>
@@ -14,24 +17,27 @@ const User = () => {
                   hover:shadow-md cursor-pointer"
                   onClick={() =>setToggled(!toggled)}>
           <IoIosMenu size={25} />
-          <FaUserCircle size={30}/>
+          <div className='flex  items-center gap-1'>
+            <FaUserCircle size={30}/>
+            {user ? <p className='font-bold'>{user?.first_name}</p> : ''}
+          </div>
           {toggled && <div className='
                 absolute right-0 top-16 z-10
                 border border-0 rounded shadow
                 w-48 bg-white py-2
                 flex flex-col gap-3
                 '>
-                <p className=' cursor-pointer border border-0 hover:rounded-sm hover:bg-gray-200 p-2'>
-                  Sign up</p>
-                <p className=' cursor-pointer border border-0 hover:rounded-sm hover:bg-gray-200 p-2'>
-                  Log in</p>
+                {user ? <UserMenu title='My Account' link='/account' />
+                  :
+                <>
+                  <UserMenu title='Sign Up' link='/register' />
+                  <UserMenu title='Log In' link='/login' />
+                </>}
+
                 <div className='border-t border-gray-300'/>
-                <p className=' cursor-pointer border border-0 hover:rounded-sm hover:bg-gray-200 p-2'>
-                  Gift Cards</p>
-                <p className=' cursor-pointer border border-0 hover:rounded-sm hover:bg-gray-200 p-2'>
-                  Airbnb your home</p>
-                <p className=' cursor-pointer border border-0 hover:rounded-sm hover:bg-gray-200 p-2'>
-                  Help Center</p>
+                <UserMenu title='Gift Crads' link='/gift' />
+                <UserMenu title='Airbnb your home' link='yourHome' />
+                <UserMenu title='Help Center' link='help' />
           </div>}
       </div>
     </>
