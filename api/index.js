@@ -1,4 +1,5 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 require('express-async-errors');
 const cors = require('cors');
 const setCorsHeader = require('./middleware/setCorsHeader')
@@ -6,6 +7,7 @@ const app = express();
 const config = require('config');
 const mongoose = require('mongoose');
 const user = require('./Routes/user');
+const auth = require('./Routes/auth');
 
 const db = config.get('db');
 mongoose.connect(db)
@@ -18,7 +20,10 @@ app.use(cors({
 }));
 app.use(setCorsHeader);
 app.use(express.json());
+app.use(cookieParser());
 app.use('/api/users', user);
+app.use('/api/auth', auth);
+
 
 
 

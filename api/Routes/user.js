@@ -1,7 +1,7 @@
 const express = require('express');
 const auth = require('../middleware/auth');
 const validator = require('../middleware/validator');
-const _ = require('lodash')
+const _ = require('lodash');
 const bcrypt = require('bcrypt');
 const {User, validateUser} = require('../models/user');
 const router = express.Router();
@@ -31,7 +31,7 @@ router.post('/', validator(validateUser),async(req,res) => {
         await user.save({session});
 
         const token = user.generateAuthToken();
-        res.header('x-auth-token', token).send(_.pick(user, ['first_name', 'last_name', 'email']));
+        res.cookie('x-auth-token', token).send(_.pick(user, ['first_name', 'last_name', 'email']));
 
         await session.commitTransaction();
     }catch(er){

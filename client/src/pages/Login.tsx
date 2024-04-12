@@ -1,17 +1,37 @@
-import{ FormEvent, useRef } from 'react'
+import{ FormEvent, useContext, useRef, useState } from 'react'
 import Input from '../components/Input/Input';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import LoginMethod from '../components/User/LoginMethod';
 import { Icon } from '@iconify-icon/react/dist/iconify.mjs';
+import APIClient from '../services/api-client';
+import { User } from '../entities/User';
+import UserContext from '../UserContext';
 
 const Login = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const apiClient = new APIClient<User>('/api/auth');
+  const [loggedIn, setLoggedIn] = useState(false);
+  const {setUser} = useContext(UserContext);
 
-  const handleSubmit = (event:FormEvent) => {
+  const userLogin = async (event:FormEvent) => {
     event.preventDefault();
-    console.log(emailRef.current?.value);
+    if(emailRef.current === null || passwordRef.current === null) return;
+
+    try{
+        const user = await apiClient.post({
+                email: emailRef.current.value,
+                password: passwordRef.current.value
+            });
+        setUser(user);
+        alert('Login successful');
+        setLoggedIn(true);
+    }catch(er){
+        alert('Login failed');
+    }
   }
+
+  if(loggedIn) return <Navigate to={'/'} />
 
   return (
     <div className='w-full h-full'>
@@ -19,7 +39,7 @@ const Login = () => {
                         flex flex-col gap-3'>
             <form className=' text-center
                         flex flex-col gap-5'
-                onSubmit={handleSubmit}>
+                onSubmit={userLogin}>
                 <h1 className='text-3xl'>Log In</h1>
                 <div className='flex flex-col gap-1'>
                     <Input inputType='text' inputTitle='email' inputRef={emailRef} placeholder='email@'/>
