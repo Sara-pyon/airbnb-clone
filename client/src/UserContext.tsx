@@ -1,10 +1,9 @@
-import { Dispatch,SetStateAction} from "react";
 import { User } from "./entities/User";
 import React from "react";
 
 interface UserContextType{
     user: User | null;
-    setUser: (user: User) => void;
+    setUser: (user: User | null) => void;
 };
 
 const UserContext = React.createContext<UserContextType>({} as UserContextType);

@@ -27,7 +27,7 @@ const User = () => {
                 w-48 bg-white py-2
                 flex flex-col gap-3
                 '>
-                {user ? <UserMenu title='My Account' link='/account' />
+                {user ? <UserMenu title='My Account' link='/account/me' />
                   :
                 <>
                   <UserMenu title='Sign Up' link='/register' />

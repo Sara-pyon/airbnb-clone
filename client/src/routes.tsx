@@ -5,6 +5,9 @@ import HomePage from "./pages/HomePage";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import AccountPage from "./pages/AccountPage";
+import ProfilePage from "./pages/ProfilePage";
+import BookingPage from "./pages/BookingPage";
+import AccomendationPage from "./pages/AccomendationPage";
 
 const router= createBrowserRouter([
     {path: '/',
@@ -14,7 +17,11 @@ const router= createBrowserRouter([
         {path:'/', element:<HomePage />},
         {path: '/register', element: <RegisterPage />},
         {path: '/login', element: <LoginPage />},
-        {path: '/account', element: <AccountPage />}
+        {path: '/account', element: <AccountPage />, children: [
+            {path: '/account/me', element:<ProfilePage /> },
+            {path: '/account/bookings', element:<BookingPage /> },
+            {path: '/account/accommondations', element:<AccomendationPage /> }
+        ]}
     ]}
 ]);
 

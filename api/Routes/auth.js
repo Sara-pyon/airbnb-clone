@@ -24,10 +24,10 @@ router.post('/', validator(validateAuth) ,async(req, res) => {
     }
 
     const token = user.generateAuthToken();
-    res.cookie('x-auth-token', token).send(pickUserInfo(user));
+    res.cookie('x-auth-token', token,options).send(pickUserInfo(user));
 });
 
-router.get('/',async(req, res) => {
+router.get('/', auth ,async(req, res) => {
     let token = req.cookies['x-auth-token'];
 
     jwt.verify(token, config.get('jwtPrivateKey'), {}, async(err, decoded) => {

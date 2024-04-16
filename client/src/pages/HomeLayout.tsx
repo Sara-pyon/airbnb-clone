@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import UserContext from '../UserContext';
 import { User } from '../entities/User';
 import APIClient from '../services/api-client';
+import useUser from '../hooks/useUser';
 
 const HomeLayout = () => {
   const apiClient = new APIClient<User>('/api/auth');
@@ -13,7 +14,7 @@ const HomeLayout = () => {
 
   useEffect(() => {
     if(!user){
-      apiClient.get().then(user => setUser(user));
+      const loggedUser = apiClient.get().then(user => setUser(user));
     };
   }, []);
   

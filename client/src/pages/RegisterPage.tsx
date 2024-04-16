@@ -1,6 +1,6 @@
 import { FormEvent, useRef } from 'react'
 import Input from '../components/Input/Input'
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import APIClient from '../services/api-client';
 import { User } from '../entities/User';
 
@@ -15,13 +15,12 @@ const Register = () => {
   const registerUser = (event:FormEvent) => {
     event.preventDefault();
     if(first_nameRef.current === null || last_nameRef.current === null || emailRef.current === null || passwordRef.current === null) return;
-    apiClient.post({
-      first_name: first_nameRef.current.value!,
-      last_name: last_nameRef.current.value!,
-      email: emailRef.current.value!,
-      password: passwordRef.current.value!
-    });
-
+        apiClient.post({
+        first_name: first_nameRef.current.value!,
+        last_name: last_nameRef.current.value!,
+        email: emailRef.current.value!,
+        password: passwordRef.current.value!
+      });
   }
 
   return (
