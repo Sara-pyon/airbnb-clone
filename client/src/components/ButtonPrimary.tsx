@@ -1,13 +1,15 @@
+import { ReactNode } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 interface Props{
-    title: string;
+    children: ReactNode;
     link: string;
+    onSelect?: boolean;
 }
 
-const ButtonPrimary = ({title, link}:Props) => {
+const ButtonPrimary = ({children, link, onSelect}:Props) => {
     const location = useLocation();
-    const onSelect = location.pathname === link;
+    if(!onSelect) onSelect = location.pathname === link;
     const style = onSelect ? 
                     "text-base bg-primary text-white px-4 py-1 rounded-full border-none" :
                     "text-base";
@@ -15,7 +17,7 @@ const ButtonPrimary = ({title, link}:Props) => {
     
   return (
     <button onClick={() => navigate(link)} className={style}>
-         {title}
+         {children}
     </button>
   )
 }

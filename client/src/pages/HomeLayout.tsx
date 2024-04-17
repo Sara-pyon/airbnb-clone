@@ -2,10 +2,9 @@ import Header from '../components/Header/Header'
 import { Outlet, useLocation} from 'react-router-dom'
 import SmallHeader from '../components/Header/SmallHeader';
 import { useEffect, useState } from 'react';
-import UserContext from '../UserContext';
+import UserContext from '../context/UserContext';
 import { User } from '../entities/User';
 import APIClient from '../services/api-client';
-import useUser from '../hooks/useUser';
 
 const HomeLayout = () => {
   const apiClient = new APIClient<User>('/api/auth');
@@ -14,7 +13,7 @@ const HomeLayout = () => {
 
   useEffect(() => {
     if(!user){
-      const loggedUser = apiClient.get().then(user => setUser(user));
+      apiClient.get().then(user => setUser(user));
     };
   }, []);
   

@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa'
 import { IoIosMenu } from 'react-icons/io'
-import UserContext from '../../UserContext';
+import UserContext from '../../context/UserContext';
 import UserMenu from './UserMenu';
 
 const User = () => {

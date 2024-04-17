@@ -5,7 +5,7 @@ import LoginMethod from '../components/User/LoginMethod';
 import { Icon } from '@iconify-icon/react/dist/iconify.mjs';
 import APIClient from '../services/api-client';
 import { User } from '../entities/User';
-import UserContext from '../UserContext';
+import UserContext from '../context/UserContext';
 
 const Login = () => {
   const emailRef = useRef<HTMLInputElement>(null);
