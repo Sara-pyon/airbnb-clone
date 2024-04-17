@@ -61,4 +61,5 @@ const validateUser = function(user){
 
 exports.User = User;
 exports.validateUser = validateUser;
+exports.userSchema = userSchema;
 

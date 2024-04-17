@@ -8,6 +8,8 @@ const config = require('config');
 const mongoose = require('mongoose');
 const user = require('./Routes/user');
 const auth = require('./Routes/auth');
+const listIcons = require('./Routes/listIcon');
+const list = require('./Routes/list');
 
 const db = config.get('db');
 mongoose.connect(db)
@@ -23,10 +25,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/api/users', user);
 app.use('/api/auth', auth);
-
-
-
-
+app.use('/api/listIcons', listIcons);
+app.use('/api/lists', list);
 
 let port;
 
